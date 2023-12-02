@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lâmpada Interativa - aula 11</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+        }
+
+        #lamp {
+            width: 200px;
+            height: 300px;
+            margin-bottom: 20px;
+            transition: opacity 0.5s ease;
+        }
+
+        #button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img id="lamp" src="https://i.postimg.cc/KjK1wL3c/bulb-off.png" alt="Lâmpada Apagada">
+    <button id="button" onclick="toggleLamp()">Acender</button>
+
+    <script>
+        let isLampOn = false;
+
+        function toggleLamp() {
+            const lamp = document.getElementById('lamp');
+            const button = document.getElementById('button');
+            const body = document.body;
+
+            isLampOn = !isLampOn;
+
+            if (isLampOn) {
+                lamp.src = 'https://i.postimg.cc/6QyTynzr/bulb-on.png';
+                button.textContent = 'Apagar';
+                body.style.backgroundColor = '#fff5c4';  // Amarelo claro
+            } else {
+                lamp.src = 'https://i.postimg.cc/KjK1wL3c/bulb-off.png';
+                button.textContent = 'Acender';
+                body.style.backgroundColor = '#333';  // Fundo escuro
+            }
+        }
+    </script>
+</body>
+</html>
